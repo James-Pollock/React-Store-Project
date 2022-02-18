@@ -9,8 +9,6 @@ const CartListOffCanvas = () => {
     return str.length > 10 ? str.substring(0, 25) + "..." : str;
   }
 
-  
-
   return (
     <>
       <ListGroup as="ul" variant="flush">
@@ -44,12 +42,9 @@ const CartListOffCanvas = () => {
       </ListGroup>
       <h2 align="center" className="h5">
         {context.cart.length === 0 && "Cart Empty!"}
-        {context.cart.length > 0 &&
-          `Total: $${context.cartTotal}`
-            }
-
+        {context.cart.length > 0 && `Total: $${context.cartTotal}`}
       </h2>
-        {context.cart.length > 0 && <ManageCartButton />}
+      {context.cart.length > 0 && <ManageCartButton />}
     </>
   );
 };

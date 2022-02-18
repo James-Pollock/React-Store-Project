@@ -5,7 +5,7 @@ import { RemoveFromCart } from "../components/RemoveFromCart";
 export default function Cart() {
   const context = useContext(StoreContext);
   const [cartTotal, setCartTotal] = useState();
-  
+
   useEffect(() => {
     if (context.cart.length > 0) {
       setCartTotal(
@@ -28,7 +28,7 @@ export default function Cart() {
               quantity:
                 item.quantity > -1
                   ? Math.abs(item.quantity + amount)
-                  : Math.abs(item.quantity)
+                  : Math.abs(item.quantity),
             }
           : item
       )
@@ -37,7 +37,7 @@ export default function Cart() {
 
   return (
     <div>
-    <h1>Cart</h1>
+      <h1>Cart</h1>
       {context.cart.map((product, i) => (
         <div className="row align-items-center p-3 mb-3 border-bottom" key={i}>
           <div className="col-md-2">
@@ -61,16 +61,8 @@ export default function Cart() {
               {product.quantity}
             </div>
             <div>
-              <button
-                onClick={(e) => setQuantity(product, -1)}
-              >
-                -
-              </button>
-              <button
-                onClick={(e) => setQuantity(product, 1)}
-              >
-                +
-              </button>
+              <button onClick={(e) => setQuantity(product, -1)}>-</button>
+              <button onClick={(e) => setQuantity(product, 1)}>+</button>
             </div>
           </div>
           <div className="col-md-2">

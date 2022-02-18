@@ -7,7 +7,6 @@ export const RemoveFromCart = ({ product }) => {
 
   const handleRemoveFromCartClick = () => {
     context.setCart(context.cart.filter((x) => x.id !== product));
-  
   };
 
   return (

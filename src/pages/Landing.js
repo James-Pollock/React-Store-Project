@@ -9,37 +9,37 @@ export default function Landing() {
   const variants = {
     initial: {
       opacity: 0,
-      y: 100
+      y: 100,
     },
     products: {
       opacity: 1,
       y: 0,
       transition: {
-        when: "afterChildren"
-      }
-    }
+        when: "afterChildren",
+      },
+    },
   };
 
   const item = {
     products: (i) => ({
       opacity: 1,
       transition: {
-        delay: i * 0.03
-      }
+        delay: i * 0.03,
+      },
     }),
     initial: {
-      opacity: 0
-    }
+      opacity: 0,
+    },
   };
   const spring = {
     type: "spring",
     stiffness: 700,
-    damping: 30
+    damping: 30,
   };
   return (
     <>
       <div className="container">
-        <h1>Web Store</h1>
+        <h1>Web React Store</h1>
         <div className="row align-items-end">
           <AnimatePresence>
             {context.data.map((product, i) => (

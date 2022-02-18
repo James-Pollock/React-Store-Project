@@ -1,5 +1,5 @@
-import {Nav} from 'react-bootstrap'
-import {LinkContainer} from 'react-router-bootstrap'
+import { Nav } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 const ManageCartButton = () => {
   return (
@@ -12,4 +12,4 @@ const ManageCartButton = () => {
     </Nav>
   );
 };
-export default ManageCartButton
+export default ManageCartButton;

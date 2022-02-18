@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {Container} from 'react-bootstrap'
+import { Container } from "react-bootstrap";
 import Nav from "./components/Navbar";
 import Cart from "./pages/Cart";
 import Landing from "./pages/Landing";

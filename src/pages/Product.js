@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { StoreContext } from "../contexts/StoreContext";
 import { AddToCart } from "../components/AddToCart";
-import {motion} from 'framer-motion'
-import {Container} from 'react-bootstrap'
+import { motion } from "framer-motion";
+import { Container } from "react-bootstrap";
 
 export default function Product() {
   const context = useContext(StoreContext);
@@ -12,13 +12,17 @@ export default function Product() {
 
   useEffect(() => {
     setProduct(context.json[params.id - 1]);
-  }, [context.json,params.id]);
+  }, [context.json, params.id]);
 
   return (
     <Container>
       {product !== undefined && (
         <div className="row">
-          <motion.div initial={{opacity:0,y:100}} animate={{opacity:1,y:0}} className="col-md-6">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="col-md-6"
+          >
             <img
               alt=""
               className="img-fluid"

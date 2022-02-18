@@ -6,12 +6,12 @@ export const StoreContext = createContext();
 export const StoreProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
-  const [cartTotal, setCartTotal] = useState([])
-  const {json} = useFetch();
+  const [cartTotal, setCartTotal] = useState([]);
+  const { json } = useFetch();
 
   useEffect(() => {
-      setData(json);
-  },[json]);
+    setData(json);
+  }, [json]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -21,11 +21,16 @@ export const StoreProvider = ({ children }) => {
       )
     );
   };
-useEffect(()=>{
-if (cart.length > 0){
-  setCartTotal(cart.map(x=>x.quantity * x.price).reduce((a,c)=>a+c).toFixed(2))
-}
-},[cart])
+  useEffect(() => {
+    if (cart.length > 0) {
+      setCartTotal(
+        cart
+          .map((x) => x.quantity * x.price)
+          .reduce((a, c) => a + c)
+          .toFixed(2)
+      );
+    }
+  }, [cart]);
 
   const value = {
     json: json,
@@ -33,7 +38,7 @@ if (cart.length > 0){
     cart: cart,
     setCart: setCart,
     handleSearch,
-    cartTotal:cartTotal
+    cartTotal: cartTotal,
   };
   return (
     <StoreContext.Provider value={value}>{children}</StoreContext.Provider>

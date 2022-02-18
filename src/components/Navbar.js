@@ -2,14 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../contexts/StoreContext";
 import { ReactComponent as CartIcon } from "@material-design-icons/svg/filled/shopping_cart.svg";
 import { motion, useAnimation } from "framer-motion";
-import CartListOffCanvas from "./CartListOffCanvas"
+import CartListOffCanvas from "./CartListOffCanvas";
 import {
   Navbar,
   Container,
   Offcanvas,
   Form,
   FormControl,
-  Nav
+  Nav,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
@@ -30,8 +30,8 @@ export default function Navigation() {
       scale: [1.3, 1],
       transition: {
         type: "spring",
-        duration: 0.3
-      }
+        duration: 0.3,
+      },
     });
   }, [controls, context.cart]);
 
@@ -67,8 +67,7 @@ export default function Navigation() {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <CartListOffCanvas/>
-            
+            <CartListOffCanvas />
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
