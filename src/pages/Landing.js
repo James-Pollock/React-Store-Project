@@ -39,7 +39,7 @@ export default function Landing() {
   return (
     <>
       <div className="container">
-        <h1>Web React Store</h1>
+        <h1>Web Store</h1>
         <div className="row align-items-end">
           <AnimatePresence>
             {context.data.map((product, i) => (
