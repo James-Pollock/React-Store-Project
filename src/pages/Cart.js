@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../contexts/StoreContext";
 import { RemoveFromCart } from "../components/RemoveFromCart";
 import { motion } from "framer-motion";
-
 export default function Cart() {
   const context = useContext(StoreContext);
   const [cartTotal, setCartTotal] = useState();
@@ -65,7 +64,12 @@ export default function Cart() {
     <div>
       <h1>Cart</h1>
       {context.cart.map((product, i) => (
-        <motion.div key={ i} variants={variants} animate="animate" initial="initial">
+        <motion.div
+          key={i}
+          variants={variants}
+          animate="animate"
+          initial="initial"
+        >
           <motion.div
             className="row align-items-center p-3 mb-3 border-bottom"
             variants={cartVariant}

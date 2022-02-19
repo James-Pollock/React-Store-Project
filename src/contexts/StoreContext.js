@@ -6,16 +6,15 @@ export const StoreContext = createContext();
 export const StoreProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
-  const [currentProduct,setCurrentProduct] = useState(null)
+  const [currentProduct,setCurrentProduct] = useState([])
   const [cartTotal, setCartTotal] = useState([]);
-  const URL = "https://fakestoreapi.com/products/";
-  // const URL = "../products.json";
+  // const URL = "https://fakestoreapi.com/products/";
+  const URL = "../products.json";
   const { json, isLoading } = useFetch(URL);
 
   useEffect(() => {
-    isLoading ? setData(json) : false
+    !isLoading ? setData(json) : false
   }, [json,isLoading]);
-
 
   const handleSearch = (e) => {
     e.preventDefault();

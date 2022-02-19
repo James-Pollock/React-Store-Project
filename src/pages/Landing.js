@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Form, FormControl } from "react-bootstrap";
 import { StoreContext } from "../contexts/StoreContext";
 import { AddToCart } from "../components/AddToCart";
@@ -85,7 +85,6 @@ export default function Landing() {
           </AnimatePresence>
         </div>
       </div>
-      <Outlet />
     </>
   );
 }

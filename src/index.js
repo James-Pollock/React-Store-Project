@@ -7,7 +7,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
     <StoreProvider>
-      <App />
+        <App />
     </StoreProvider>
   </StrictMode>,
   rootElement
