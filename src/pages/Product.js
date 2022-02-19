@@ -26,7 +26,7 @@ export default function Product() {
             <img
               alt=""
               className="img-fluid"
-              style={{ height: "500px" }}
+              style={{ maxHeight: "500px" }}
               src={product.image}
             />
           </motion.div>

@@ -7,9 +7,6 @@ import {
   Navbar,
   Container,
   Offcanvas,
-  Form,
-  FormControl,
-  Nav,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
@@ -41,15 +38,6 @@ export default function Navigation() {
         <LinkContainer to="/">
           <Navbar.Brand>Home</Navbar.Brand>
         </LinkContainer>
-        <Form>
-          <FormControl
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            onChange={context.handleSearch}
-            className="form-control me-2 mr-sm-2"
-          />
-        </Form>
         <Navbar.Toggle className="border-0" aria-controls="offcanvasNavbar">
           <motion.div className="p-2 text-light" animate={controls}>
             <CartIcon style={{ fill: "currentColor", color: "white" }} />

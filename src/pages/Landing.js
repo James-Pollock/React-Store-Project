@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
+import { Form, FormControl } from "react-bootstrap";
 import { StoreContext } from "../contexts/StoreContext";
 import { AddToCart } from "../components/AddToCart";
 import { motion, AnimatePresence } from "framer-motion";
@@ -40,6 +41,15 @@ export default function Landing() {
     <>
       <div className="container">
         <h1>React Framer Store</h1>
+        <Form>
+          <FormControl
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            onChange={context.handleSearch}
+            className="form-control me-2 mr-sm-2"
+          />
+        </Form>
         <div className="row align-items-end">
           <AnimatePresence>
             {context.data.map((product, i) => (
