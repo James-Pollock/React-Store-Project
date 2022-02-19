@@ -13,7 +13,7 @@ export default function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/product/:id" element={<Product />} />
+          <Route exact path="/product/:id" element={<Product />} />
           <Route path="/Cart" element={<Cart />} />
         </Routes>
       </Container>

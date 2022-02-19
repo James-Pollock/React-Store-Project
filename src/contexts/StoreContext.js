@@ -6,12 +6,16 @@ export const StoreContext = createContext();
 export const StoreProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
+  const [currentProduct,setCurrentProduct] = useState(null)
   const [cartTotal, setCartTotal] = useState([]);
-  const { json } = useFetch();
+  const URL = "https://fakestoreapi.com/products/";
+  // const URL = "../products.json";
+  const { json, isLoading } = useFetch(URL);
 
   useEffect(() => {
-    setData(json);
-  }, [json]);
+    isLoading ? setData(json) : false
+  }, [json,isLoading]);
+
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -21,6 +25,7 @@ export const StoreProvider = ({ children }) => {
       )
     );
   };
+
   useEffect(() => {
     if (cart.length > 0) {
       setCartTotal(
@@ -33,12 +38,14 @@ export const StoreProvider = ({ children }) => {
   }, [cart]);
 
   const value = {
-    json: json,
+    isLoading:isLoading,
     data: data,
     cart: cart,
     setCart: setCart,
     handleSearch,
     cartTotal: cartTotal,
+    currentProduct: currentProduct,
+    setCurrentProduct:setCurrentProduct
   };
   return (
     <StoreContext.Provider value={value}>{children}</StoreContext.Provider>

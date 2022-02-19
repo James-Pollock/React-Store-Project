@@ -5,3 +5,8 @@
   text-align: center;
   margin-top: 80px;
 }
+
+.hero{
+  height:100%;
+  overflow: hidden;
+}

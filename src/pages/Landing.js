@@ -4,6 +4,7 @@ import { Form, FormControl } from "react-bootstrap";
 import { StoreContext } from "../contexts/StoreContext";
 import { AddToCart } from "../components/AddToCart";
 import { motion, AnimatePresence } from "framer-motion";
+import Hero from "../components/Hero"
 
 export default function Landing() {
   const context = useContext(StoreContext);
@@ -39,9 +40,11 @@ export default function Landing() {
   };
   return (
     <>
+      {context.isLoading && "Loading..."}
       <div className="container">
-        <h1>React Framer Store</h1>
-        <Form>
+        <h1 className="display-1">React Framer Store</h1>
+        <Hero/>
+        <Form className="my-5">
           <FormControl
             type="search"
             placeholder="Search"

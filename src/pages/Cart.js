@@ -65,7 +65,7 @@ export default function Cart() {
     <div>
       <h1>Cart</h1>
       {context.cart.map((product, i) => (
-        <motion.div variants={variants} animate="animate" initial="initial">
+        <motion.div key={ i} variants={variants} animate="animate" initial="initial">
           <motion.div
             className="row align-items-center p-3 mb-3 border-bottom"
             variants={cartVariant}

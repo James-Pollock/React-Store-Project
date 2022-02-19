@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 
-const useFetch = () => {
+const useFetch = (url) => {
   const [json, setJson] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const URL = "https://fakestoreapi.com/products/";
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(URL);
+        const response = await fetch(url);
         const result = await response.json();
         if (response.ok) {
           setJson(result);
