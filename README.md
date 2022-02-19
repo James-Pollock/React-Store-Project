@@ -1,2 +1,2 @@
 # React-Store-Project-2
-Created with CodeSandbox
+Shopping Cart Project using React, React Router, Framer Motion, React-Bootstrap
