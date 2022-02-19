@@ -9,7 +9,8 @@ import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 export default function App() {
   return (
-    <Container style={{minHeight:'100vh'}} className="App">
+     
+    <Container className="App">
       <Router>
         <Nav />
         <Routes>

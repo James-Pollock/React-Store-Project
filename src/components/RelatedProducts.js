@@ -14,9 +14,9 @@ export default function RelatedProducts() {
       </h2>
       <Row xs={1} sm={3} md={4} className="g-5">
         {context.currentProduct &&
-          context.data.filter((x) => x.category === context.currentProduct.category)
+          context.data.filter((x) => x.category === context.currentProduct.category && x.id !== context.currentProduct.id)
             .map((x, i) => (
-              <Col key={i}>
+              <Col key={x.id}>
                 <Link to={`/product/${x.id}`}>
                   <Card className="border-0">
                     <Card.Img

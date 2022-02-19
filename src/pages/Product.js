@@ -16,39 +16,38 @@ export default function Product() {
   }, [context.data, params]);
   return (
     <>
-        <AnimatePresence>
-          {context.currentProduct && (
-            <div className="row">
-              <motion.div
-                key="productPagePresence"
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 100 }}
-                className="col-md-6"
-              >
-                <img
-                  alt=""
-                  className="img-fluid"
-                  style={{ maxHeight: "500px" }}
-                  src={context.currentProduct.image}
-                />
-              </motion.div>
-              <div className="col-md-6">
-                <h1>{context.currentProduct.title}</h1>
-                <p>{context.currentProduct.description}</p>
-                <p>
-                  <strong>Price: </strong>${context.currentProduct.price}
-                </p>
-                <p className="text-capitalize">
-                  <strong>Category: </strong>
-                  {context.currentProduct.category}
-                </p>
-                <AddToCart />
-              </div>
+      <AnimatePresence exitBeforeEnter={true}>
+        {context.currentProduct && (
+          <div key="productPagePresence" className="row">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -100 }}
+              className="col-md-6"
+            >
+              <img
+                alt=""
+                className="img-fluid"
+                style={{ maxHeight: "500px" }}
+                src={context.currentProduct.image}
+              />
+            </motion.div>
+            <div className="col-md-6">
+              <h1>{context.currentProduct.title}</h1>
+              <p>{context.currentProduct.description}</p>
+              <p>
+                <strong>Price: </strong>${context.currentProduct.price}
+              </p>
+              <p className="text-capitalize">
+                <strong>Category: </strong>
+                {context.currentProduct.category}
+              </p>
+              <AddToCart product={context.currentProduct} />
             </div>
-          )}
-          <RelatedProducts />
-        </AnimatePresence>
+          </div>
+        )}
+        <RelatedProducts />
+      </AnimatePresence>
     </>
   );
 }

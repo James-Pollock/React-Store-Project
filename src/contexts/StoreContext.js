@@ -8,8 +8,8 @@ export const StoreProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [currentProduct,setCurrentProduct] = useState([])
   const [cartTotal, setCartTotal] = useState([]);
-  // const URL = "https://fakestoreapi.com/products/";
-  const URL = "../products.json";
+  const URL = "https://fakestoreapi.com/products/";
+  // const URL = "../products.json";
   const { json, isLoading } = useFetch(URL);
 
   useEffect(() => {
