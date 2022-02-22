@@ -6,6 +6,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "react-bootstrap";
 import RelatedProducts from "../components/RelatedProducts";
 
+const variants = {
+  initial: {
+    y: 100,
+    opacity:0
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      staggerChildren: .5,
+      delayChildren:.5
+    }
+  }
+}
+
+const childVariants = {
+  initial: {
+    y: 100,
+    opacity: 0
+  },
+  animate: {
+    y: 0,
+    opacity: 1
+  }
+}
+
 export default function Product() {
   const context = useContext(StoreContext);
   const params = useParams();
@@ -13,16 +39,17 @@ export default function Product() {
     context.setCurrentProduct(
       context.data.find((x) => String(x.id) === String(params.id))
     );
-  }, [context.data, params]);
+  }, [context.data,params]);
   return (
     <>
-      <AnimatePresence exitBeforeEnter={true}>
+      {context.isLoading && "...Loading"}
         {context.currentProduct && (
-          <div key="productPagePresence" className="row">
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -100 }}
+          <div className="row">
+          <motion.div
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            // transition={{type:'spring',duration:1}}
               className="col-md-6"
             >
               <img
@@ -46,8 +73,7 @@ export default function Product() {
             </div>
           </div>
         )}
-        <RelatedProducts />
-      </AnimatePresence>
+      <RelatedProducts childVariants={childVariants}/>
     </>
   );
 }

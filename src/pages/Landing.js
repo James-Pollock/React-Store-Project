@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Form, FormControl } from "react-bootstrap";
+import { Form, FormControl, FloatingLabel, Row, Col } from "react-bootstrap";
 import { StoreContext } from "../contexts/StoreContext";
 import { AddToCart } from "../components/AddToCart";
 import { motion, AnimatePresence } from "framer-motion";
-import Hero from "../components/Hero"
+import Hero from "../components/Hero";
 
 export default function Landing() {
   const context = useContext(StoreContext);
@@ -43,15 +43,53 @@ export default function Landing() {
       {context.isLoading && "Loading..."}
       <div className="container">
         <h1 className="display-1">React Framer Store</h1>
-        <Hero/>
+        <Hero />
         <Form className="my-5">
-          <FormControl
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            onChange={context.handleSearch}
-            className="form-control me-2 mr-sm-2"
-          />
+          <Form.Group>
+            <Form.Label htmlFor="Search">Search</Form.Label>
+            <FormControl
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              onChange={context.handleSearch}
+              className="form-control me-2 mr-sm-2"
+            />
+          </Form.Group>
+          <Row>
+            <Col>
+              <FloatingLabel controlId="floatingSelect" label="Category Filter">
+                <Form.Select
+                  onChange={(e) => context.filterCategories(e)}
+                  style={{ textTransform: "capitalize" }}
+                  size="sm"
+                >
+                  <option disabled>Category</option>
+                  <option>All Products</option>
+                  {[...context.categories].map((category, i) => (
+                    <option value={category} key={i}>
+                      {category}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+            </Col>
+            <Col>
+              <FloatingLabel controlId="floatingPrice" label="Price">
+                <Form.Select
+                  onChange={(e) => context.sortPrice(e)}
+                  style={{ textTransform: "capitalize" }}
+                  size="sm"
+                >
+                  <option disabled>Price</option>
+                  <option value="unsorted">Unsorted</option>
+                  <option value="high-to-low">High to Low</option>
+                  <option value="low-to-high">Low to High</option>
+                  <option value="a-z">A-Z</option>
+                  <option value="rating">rating</option>
+                </Form.Select>
+              </FloatingLabel>
+            </Col>
+          </Row>
         </Form>
         <div className="row align-items-end">
           <AnimatePresence>
@@ -74,13 +112,21 @@ export default function Landing() {
                   className="img-fluid"
                   src={product.image}
                 />
-                <p>{product.title}</p>
-                <p>${product.price.toFixed(2)}</p>
+                <p className="text-truncate">
+                  <strong>{product.title}</strong>
+                </p>
+                <p>
+                  <strong>Price:</strong> ${product.price.toFixed(2)}
+                </p>
+                <p>
+                  <strong>Rating:</strong> {product.rating.rate.toFixed(2)}
+                </p>
                 <p>
                   <Link to={`/product/${product.id}`}>More</Link>
                 </p>
                 <AddToCart product={product} />
-              </motion.div>
+                </motion.div>
+                
             ))}
           </AnimatePresence>
         </div>
