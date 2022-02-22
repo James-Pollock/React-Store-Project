@@ -45,17 +45,18 @@ export default function Landing() {
         <h1 className="display-1">React Framer Store</h1>
         <Hero />
         <Form className="my-5">
+        <Row>
+        <Col sm={12}>
           <Form.Group>
-            <Form.Label htmlFor="Search">Search</Form.Label>
-            <FormControl
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={context.handleSearch}
-              className="form-control me-2 mr-sm-2"
-            />
+          <FormControl
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          onChange={context.handleSearch}
+          className="form-control mb-4 me-2 mr-sm-2"
+          />
           </Form.Group>
-          <Row>
+          </Col>
             <Col>
               <FloatingLabel controlId="floatingSelect" label="Category Filter">
                 <Form.Select
@@ -98,7 +99,7 @@ export default function Landing() {
                 variants={variants}
                 initial="initial"
                 animate="products"
-                className="col-md-3 col-sm-6 p-3"
+                className="col-md-3 col-6 mb-4 p-3"
                 layout
                 transition={spring}
                 exit="initial"
@@ -109,7 +110,7 @@ export default function Landing() {
                   custom={i}
                   alt=""
                   style={{ maxHeight: "150px" }}
-                  className="img-fluid"
+                  className="img-fluid mb-3"
                   src={product.image}
                 />
                 <p className="text-truncate">
@@ -126,7 +127,6 @@ export default function Landing() {
                 </p>
                 <AddToCart product={product} />
                 </motion.div>
-                
             ))}
           </AnimatePresence>
         </div>
