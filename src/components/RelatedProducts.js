@@ -34,9 +34,10 @@ export default function RelatedProducts({ childVariants }) {
             .map((x, i) => (
               <motion.div key={x.id} variants={childVariants} >
                 <Col>
-                  <Link to={`/product/${x.id}`}>
+                  <Link title={x.title} to={`/product/${x.id}`}>
                     <Card className="border-0">
                       <Card.Img
+                        alt={x.title}
                         variant="top"
                         className="w-50 h-50 m-auto"
                         src={x.image}

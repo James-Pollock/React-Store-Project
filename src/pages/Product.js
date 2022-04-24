@@ -53,7 +53,7 @@ export default function Product() {
               className="col-md-6"
             >
               <img
-                alt=""
+              alt={context.currentProduct.title}
                 className="img-fluid"
                 style={{ maxHeight: "500px" }}
                 src={context.currentProduct.image}

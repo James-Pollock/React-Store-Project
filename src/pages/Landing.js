@@ -105,6 +105,7 @@ export default function Landing() {
                 exit="initial"
                 key={i}
               >
+                <Link title={product.title} to={`/product/${product.id}` }>
                 <motion.img
                   variants={item}
                   custom={i}
@@ -112,7 +113,8 @@ export default function Landing() {
                   style={{ maxHeight: "150px" }}
                   className="img-fluid mb-3"
                   src={product.image}
-                />
+                  />
+                  </Link>
                 <p className="text-truncate">
                   <strong>{product.title}</strong>
                 </p>
