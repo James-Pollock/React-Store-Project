@@ -3,12 +3,9 @@ import { StoreContext } from "../contexts/StoreContext";
 import { ReactComponent as CartIcon } from "@material-design-icons/svg/filled/shopping_cart.svg";
 import { motion, useAnimation } from "framer-motion";
 import CartListOffCanvas from "./CartListOffCanvas";
-import {
-  Navbar,
-  Container,
-  Offcanvas,
-} from "react-bootstrap";
+import { Navbar, Container, Offcanvas } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+
 
 export default function Navigation() {
   const context = useContext(StoreContext);
@@ -34,7 +31,7 @@ export default function Navigation() {
 
   return (
     <Navbar fixed="top" bg="dark" variant="dark" expand={false}>
-      <Container>
+      <Container className="d-flex justify-content-bewteen">
         <LinkContainer to="/">
           <Navbar.Brand>Home</Navbar.Brand>
         </LinkContainer>
@@ -51,7 +48,7 @@ export default function Navigation() {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarLabel">
-              Offcanvas
+              Items in your cart
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
