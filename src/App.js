@@ -1,5 +1,4 @@
 import { Routes, Route, Match } from "react-router-dom";
-
 import { Container } from "react-bootstrap";
 import Nav from "./components/Navbar";
 import Cart from "./pages/Cart";

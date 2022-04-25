@@ -12,6 +12,10 @@
   overflow: hidden;
 }
 
+#jpwebtech > a:hover{
+  color:#fff!important
+}
+
 /* body,html,.Loader{
   position:absolute;
   z-index:100;
