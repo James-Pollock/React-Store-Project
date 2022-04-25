@@ -22,7 +22,7 @@ export default function Hero() {
     setImages(context.data.map((x) => x));
   }, [context.data]);
   return (
-    <div className="hero">
+    <div className="hero text-center">
       <Carousel variant="dark">
         {images !== [] &&
           images

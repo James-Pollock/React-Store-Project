@@ -99,7 +99,7 @@ export default function Landing() {
                 variants={variants}
                 initial="initial"
                 animate="products"
-                className="col-md-3 col-6 mb-4 p-3"
+                className="col-md-3 col-6 mb-4 p-3 text-center"
                 layout
                 transition={spring}
                 exit="initial"
